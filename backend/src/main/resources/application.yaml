@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: ToDoList
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+
+  datasource:
+    url: '${HOST}'
+    password: ${DB_PASSWORD}
+    username: ${DB_USER}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.MySQLDialect
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: 6379
+  mail:
+    username: ${EMAIL}
+    password: ${EMAIL_PASSWORD}
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+frontend:
+  host: ${FE_HOST}
+aws:
+  access-key: ${AWS_ACCESS_KEY}
+  secret-key: ${AWS_SECRET_KEY}
+  bucket-name: ${AWS_BUCKET_NAME}
+  region: ${AWS_REGION}
+jwt:
+  secret: ${SIGNER_KEY}
+google:
+  client-id: ${CLIENT_ID}
+  client-secret: ${CLIENT_SECRET}
+  redirect-uri: ${REDIRECT_URI}
+

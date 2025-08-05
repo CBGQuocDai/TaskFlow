@@ -1,0 +1,41 @@
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 2MB
+
+  datasource:
+    url: jdbc:h2:mem:test
+    driver-class-name: org.h2.Driver
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  data:
+    redis:
+      host: ${REDIS_HOST}
+      port: 6379
+  mail:
+    username: ${EMAIL}
+    password: ${EMAIL_PASSWORD}
+    host: ${SMTP_HOST}
+    port: ${SMTP_PORT}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+aws:
+  access-key: ${AWS_ACCESS_KEY}
+  secret-key: ${AWS_SECRET_KEY}
+  bucket-name: ${AWS_BUCKET_NAME}
+  region: ${AWS_REGION}
+jwt:
+  secret: ${SIGNER_KEY}
+google:
+  client-id: ${CLIENT_ID}
+  client-secret: ${CLIENT_SECRET}
+  redirect-uri: ${REDIRECT_URI}
+
