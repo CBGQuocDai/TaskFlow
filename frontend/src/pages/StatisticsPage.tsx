@@ -26,6 +26,7 @@ const StatisticsPage: React.FC = () => {
 
     // Cập nhật tasksDueCategoryData và overdueTasks trong useEffect
     useEffect(() => {
+        console.log(HOST)
         getStatic();
     }, []); // Chỉ chạy một lần khi component mount
 

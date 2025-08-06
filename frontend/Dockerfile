@@ -23,7 +23,8 @@ RUN rm -rf /usr/share/nginx/html/*
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Sao chép các file đã build từ giai đoạn 'builder' vào thư mục phục vụ của Nginx
 COPY --from=builder /app/dist /usr/share/nginx/html
-
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 # Mở cổng 80 để truy cập ứng dụng
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/entrypoint.sh"]
