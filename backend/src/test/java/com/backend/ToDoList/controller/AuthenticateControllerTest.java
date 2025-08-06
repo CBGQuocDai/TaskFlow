@@ -41,7 +41,6 @@ public class AuthenticateControllerTest {
     @MockitoBean
     private AuthenticateServiceImpl authenticateServiceImpl;
 
-
     private LoginRequest loginRequest;
     private TokenResponse tokenResponse;
     @BeforeEach
