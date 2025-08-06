@@ -5,7 +5,6 @@ spring:
     multipart:
       enabled: true
       max-file-size: 2MB
-
   datasource:
     url: '${HOST}'
     password: ${DB_PASSWORD}
@@ -37,6 +36,14 @@ spring:
           starttls:
             enable: true
             required: true
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web:
+          filter:
+            CorsFilter: DEBUG
 frontend:
   host: ${FE_HOST}
 aws:
