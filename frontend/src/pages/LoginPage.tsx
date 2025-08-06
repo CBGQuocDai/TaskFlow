@@ -12,11 +12,17 @@ const LoginPage: React.FC = () => {
     const navigate = useNavigate();
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        const response = await login({email, password}) as ApiResponse<LoginResponse>;
-        console.log(response);
-        if(response.code === 1000){
-          localStorage.setItem("token", response.data.token);
+        try {
+            const response = await login({email, password}) as ApiResponse<LoginResponse>;
+            if(response.code === 1000){
+                localStorage.setItem("token", response.data.token);
+            }
+        } catch (e: any) {
+            alert(e.response.data.message);
         }
+
+
+
         navigate("/");
     }
     const googleLogin = useGoogleLogin({
