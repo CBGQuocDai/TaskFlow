@@ -18,11 +18,11 @@ const LoginPage: React.FC = () => {
                 localStorage.setItem("token", response.data.token);
             }
         } catch (e: any) {
-            alert(e.response.data.message);
+            console.log(e.response.data);
+            if(e.response.data.code === 1006) {
+                alert("email hoặc mật khẩu không chính xác");
+            }
         }
-
-
-
         navigate("/");
     }
     const googleLogin = useGoogleLogin({
@@ -34,7 +34,10 @@ const LoginPage: React.FC = () => {
             }
             navigate("/");
         },
-        onError: (errorResponse) => console.log("Lỗi đăng nhập Google:", errorResponse),
+        onError: (errorResponse) => {
+            console.log("Lỗi đăng nhập Google:", errorResponse);
+            alert("Đã xãy ra lỗi")
+        },
         flow:'auth-code'
     });
     const handleGoogleLogin = async () => {

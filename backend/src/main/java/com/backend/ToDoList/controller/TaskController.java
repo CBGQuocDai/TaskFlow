@@ -405,7 +405,7 @@ public class TaskController {
             @RequestParam(defaultValue = "10") int limit,
             @RequestParam(defaultValue = "id") String orderBy,
             @RequestParam(defaultValue = "all") String complete,
-            @RequestParam(defaultValue = "desc") String sortOrder
+            @RequestParam(defaultValue = "asc") String sortOrder
     ) {
 
         List<TaskResponse> res = taskServiceImpl.getListTasks(page,limit,orderBy, complete,sortOrder);

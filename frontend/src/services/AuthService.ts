@@ -55,7 +55,7 @@ export const register = async (body: RegisterRequest) => {
         return response.data;
     }catch (e: any) {
         console.error(e);
-        if(e.response.data.code==1001) {
+        if(e.response.data.code==1005) {
             alert("email đã tồn tại")
         }
     }

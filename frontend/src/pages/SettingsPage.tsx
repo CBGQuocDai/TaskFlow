@@ -84,9 +84,10 @@ const SettingsPage: React.FC = () => {
             else {
                 if(resp.code ===1012) {
                     alert("file không hợp lệ")
+                    setTempAvatarFile(null); // Clear temporary file
+                    setTempAvatarUrl(''); // Clear temporary URL
                 }
             }
-
         }
         setIsAvatarConfirmModalOpen(false); // Close modal
     };
@@ -101,7 +102,6 @@ const SettingsPage: React.FC = () => {
             }
             handleSendOtp();
         } else {
-
             alert('Email không thay đổi.');
         }
     };

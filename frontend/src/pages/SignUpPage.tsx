@@ -25,10 +25,11 @@ const SignUpPage: React.FC = () => {
             name: name,
             password: password,
         } as RegisterRequest;
-        const response = await register(content) as ApiResponse<void>;
-        if(response.code === 1000){
-            navigate('/verifyOtp', {state: {email:email,target:'/',actionType:'register'}});
-        }
+            const response = await register(content) as ApiResponse<void>;
+            if(response.code === 1000){
+                navigate('/verifyOtp', {state: {email:email,target:'/',actionType:'register'}});
+            }
+
     };
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center p-4 font-inter">
